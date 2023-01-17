@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk 32
+    compileSdkVersion 32
+
+    defaultConfig {
+        applicationId "com.app.arbrochuredemoapp"
+
+        // Sceneform requires minSdk >= 24.
+        minSdk 24
+        targetSdk 32
+        versionCode 1
+        versionName "1.0.0"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    aaptOptions {
+        noCompress 'filamat', 'ktx'
+    }
+}
+
+dependencies {
+    implementation "com.google.android.filament:filament-android:1.21.1"
+
+    implementation "androidx.appcompat:appcompat:1.4.1"
+    implementation "androidx.fragment:fragment-ktx:1.4.1"
+
+    implementation "com.google.android.material:material:1.6.0"
+
+    releaseImplementation "com.gorisse.thomas.sceneform:sceneform:1.21.0"
+    debugApi project(":sceneform")
+
+}
